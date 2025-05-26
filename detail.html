@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thuexetienloi.com</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Header -->
+ <nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
+  <a class="navbar-brand" href="#">Thuexetienloi.com</a>
+  <div class="ms-auto d-flex align-items-center">
+    <a href="register.html" class="me-2">Đăng ký</a>
+    <a href="login.html" class="me-2">Đăng nhập</a>
+    <span id="userGreeting" class="text-danger fw-bold d-none me-3"></span>  <!-- Hiển thi tên người dùng sau khi đăng nhập -->
+    <a href="cart.html" class="btn btn-outline-primary">
+      🛒 Giỏ hàng (<span id="cartCount">0</span>) </a>
+    <a href="#" id="logoutBtn" class="btn btn-outline-danger ms-2">Đăng xuất</a>
+  </div>
+</nav>
+
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Trang chủ</a></li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Dòng xe</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">SH</a></li>
+            <li><a class="dropdown-item" href="#">Vespa</a></li>
+            <li><a class="dropdown-item" href="#">Tay ga khác</a></li>
+            <li><a class="dropdown-item" href="#">Tay côn</a></li>
+            <li><a class="dropdown-item" href="#">Xe số</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Hãng xe</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Honda</a></li>
+            <li><a class="dropdown-item" href="#">Yamaha</a></li>
+            <li><a class="dropdown-item" href="#">Piaggio</a></li>
+            <li><a class="dropdown-item" href="#">SYM</a></li>
+            <li><a class="dropdown-item" href="#">Suzuki</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="history.html">Lịch sử thuê xe</a>
+        </li>
+      </ul>
+
+      <!-- Thanh tìm kiếm  -->
+      <form class="d-flex" role="search">
+      <input id="searchInput" class="form-control" type="search" placeholder="Tìm xe..." aria-label="Search">
+      </form>
+    </div>
+  </nav>
+
+  <!-- Main information -->
+  <div class="container py-5">
+    <div class="row main-information g-0 align-items-start">
+
+      <!-- Left: Ảnh -->
+    <div class="col-md-6 main-information-left d-flex flex-column align-items-center">
+      <img id="detailImage" src="" class="img-fluid rounded mb-3 border" alt="Hình ảnh xe" style="max-height: 300px; object-fit: contain;">
+      <div class="d-flex justify-content-between gap-2 mt-2">
+        <img class="img-thumbnail thumb-img" id="thumb1" src="" alt="Ảnh phụ 1">
+        <img class="img-thumbnail thumb-img" id="thumb2" src="" alt="Ảnh phụ 2">
+        <img class="img-thumbnail thumb-img" id="thumb3" src="" alt="Ảnh phụ 3">
+      </div>
+    </div>
+
+      <!-- Right: Thông tin -->
+      <div class="col-md-6 main-information-right">
+        <h3 id="detailName" class="text-danger mb-3">Tên xe</h3>
+        <p id="detailPrice" class="fs-5">Giá: ...</p>
+        <p id="detailDesc" class="text-muted">Mô tả:</p>
+
+        <div class="mt-4 p-3 border bg-white rounded">
+          <h5 class="text-dark">🔖 Lưu ý khi thuê xe:</h5>
+          <ul class="mb-0">
+            <li>CMND/CCCD (bản gốc)</li>
+            <li>Giấy phép lái xe</li>
+            <li>Tiền cọc (có thể chuyển khoản hoặc tiền mặt)</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <a href="rent.html" class="btn btn-success me-2">Đặt xe</a>
+          <button id="btnAddToCart" class="btn btn-outline-secondary">Thêm vào giỏ</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-light text-center text-lg-start py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Thông tin liên hệ</h5>
+          <p>Tel: 0762799731</p>
+          <p>Email: Thuexetienloi@gmail.com</p>
+          <p>Website: www.thuexetienloiHCM.com</p>
+          <p>Địa chỉ:</p>
+          <p>Cơ sở 1: 58/2, đường số 6, Hiệp Bình Chánh, TP Thủ Đức</p>
+          <p>Cơ sở 2: sẽ bổ sung sau</p>
+        </div>
+        <div class="col-md-6">
+          <h5>Chính sách</h5>
+          <ul class="list-unstyled">
+            <li>Chính sách tư vấn</li>
+            <li>Chính sách đặt xe</li>
+            <li>Chính sách giao nhận</li>
+            <li>Chính sách thanh toán</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

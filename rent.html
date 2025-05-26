@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đặt xe - Thuexetienloi.com</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
+    <a class="navbar-brand" href="index.html">Thuexetienloi.com</a>
+    <div class="ms-auto d-flex align-items-center">
+      <a href="register.html" class="me-2">Đăng ký</a>
+      <a href="login.html" class="me-2">Đăng nhập</a>
+      <span id="userGreeting" class="text-danger fw-bold d-none me-3"></span>
+      <a href="cart.html" class="btn btn-outline-primary">
+        🛒 Giỏ hàng (<span id="cartCount">0</span>)</a>
+      <a href="#" id="logoutBtn" class="btn btn-outline-danger ms-2">Đăng xuất</a>
+    </div>
+  </nav>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Trang chủ</a></li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Dòng xe</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">SH</a></li>
+            <li><a class="dropdown-item" href="#">Vespa</a></li>
+            <li><a class="dropdown-item" href="#">Tay ga khác</a></li>
+            <li><a class="dropdown-item" href="#">Tay côn</a></li>
+            <li><a class="dropdown-item" href="#">Xe số</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Hãng xe</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Honda</a></li>
+            <li><a class="dropdown-item" href="#">Yamaha</a></li>
+            <li><a class="dropdown-item" href="#">Piaggio</a></li>
+            <li><a class="dropdown-item" href="#">SYM</a></li>
+            <li><a class="dropdown-item" href="#">Suzuki</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="history.html">Lịch sử thuê xe</a>
+        </li>
+      </ul>
+
+      <!-- Thanh tìm kiếm  -->
+      <form class="d-flex" role="search">
+      <input id="searchInput" class="form-control" type="search" placeholder="Tìm xe..." aria-label="Search">
+      </form>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <main class="container my-5">
+    <h2 class="mb-4">📄 Thông tin đặt xe</h2>
+
+    <!-- Danh sách xe sẽ thuê -->
+    <div id="vehicleSummary" class="mb-5"></div>
+
+    <!-- Form thông tin thuê xe -->
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">Thông tin người thuê</h5>
+        <form id="rentForm">
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label class="form-label">Họ và tên</label>
+              <input type="text" class="form-control" id="fullname" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Số điện thoại</label>
+              <input type="tel" class="form-control" id="phone" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Địa chỉ giao xe</label>
+            <input type="text" class="form-control" id="address" required>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label class="form-label">Ngày bắt đầu thuê</label>
+              <input type="date" class="form-control" id="startDate" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Số ngày thuê</label>
+              <input type="number" class="form-control" id="days" min="1" value="1" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Ghi chú thêm</label>
+            <textarea class="form-control" id="note" rows="2"></textarea>
+          </div>
+          <div class="mb-3 text-end">
+            <strong>Tổng số lượng xe: <span id="totalQty">0</span></strong><br>
+            <strong class="text-danger">Tổng tiền: <span id="totalAmount">0đ</span></strong>
+          </div>
+          <div class="text-end">
+            <button type="submit" class="btn btn-success" id="submitBtn" disabled>Đặt xe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-light text-center text-lg-start py-4 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Thông tin liên hệ</h5>
+          <p>Tel: 0762799731</p>
+          <p>Email: Thuexetienloi@gmail.com</p>
+          <p>Website: www.thuexetienloiHCM.com</p>
+          <p>Địa chỉ:</p>
+          <p>Cơ sở 1: 58/2, đường số 6, Hiệp Bình Chánh, TP Thủ Đức</p>
+          <p>Cơ sở 2: sẽ bổ sung sau</p>
+        </div>
+        <div class="col-md-6">
+          <h5>Chính sách</h5>
+          <ul class="list-unstyled">
+            <li>Chính sách tư vấn</li>
+            <li>Chính sách đặt xe</li>
+            <li>Chính sách giao nhận</li>
+            <li>Chính sách thanh toán</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("rentForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const qtyEl = document.getElementById("totalQty");
+    const amountEl = document.getElementById("totalAmount");
+    const summary = document.getElementById("vehicleSummary");
+    const daysInput = document.getElementById("days");
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const selected = localStorage.getItem("selectedVehicle");
+
+    if (selected) {
+      const selectedVehicle = JSON.parse(selected);
+      const isDuplicate = cart.some(item =>
+        item.name === selectedVehicle.name && item.price === selectedVehicle.price
+      );
+      if (!isDuplicate) {
+        cart.push(selectedVehicle);
+      }
+    }
+
+    if (!cart || cart.length === 0) {
+      summary.innerHTML = '<div class="alert alert-warning">Không có xe nào được chọn để đặt!</div>';
+      form.style.display = "none";
+      return;
+    }
+
+    const grouped = {};
+    cart.forEach(vehicle => {
+      const key = vehicle.name;
+      if (!grouped[key]) {
+        grouped[key] = { ...vehicle, quantity: 1 };
+      } else {
+        grouped[key].quantity++;
+      }
+    });
+
+    // Biến toàn cục để truy cập trong hàm submit
+    let totalQty = 0;
+    let totalAmount = 0;
+
+    function calculateTotal() {
+      const days = parseInt(document.getElementById("days").value) || 1;
+      totalQty = 0;
+      totalAmount = 0;
+      summary.innerHTML = "";
+
+      Object.values(grouped).forEach(item => {
+        const itemTotal = item.quantity * Number(item.price);
+        totalQty += item.quantity;
+        totalAmount += itemTotal;
+
+        const block = document.createElement("div");
+        block.className = "mb-3 p-3 border rounded bg-white shadow-sm";
+        block.innerHTML = `
+          <h5 class="text-danger mb-1">${item.name}</h5>
+          <p class="mb-1">Giá thuê: ${Number(item.price).toLocaleString()}đ/ngày</p>
+          <p class="mb-1">Mô tả: ${item.desc || "Không có mô tả."}</p>
+          <p class="mb-1 fw-bold">Số lượng: ${item.quantity}</p>
+        `;
+        summary.appendChild(block);
+      });
+
+      qtyEl.textContent = totalQty;
+      amountEl.textContent = `${(totalAmount * days).toLocaleString()}đ`;
+    }
+
+    calculateTotal();
+    daysInput.addEventListener("input", calculateTotal);
+
+    const requiredFields = ["fullname", "phone", "address", "startDate", "days"];
+    requiredFields.forEach(id => {
+      document.getElementById(id).addEventListener("input", checkForm);
+    });
+
+    function checkForm() {
+      const allFilled = requiredFields.every(id =>
+        document.getElementById(id).value.trim() !== ""
+      );
+      submitBtn.disabled = !allFilled;
+    }
+
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      const days = Number(document.getElementById("days").value);
+
+      const rentalData = {
+        date: new Date().toISOString(),
+        fullname: document.getElementById("fullname").value,
+        phone: document.getElementById("phone").value,
+        address: document.getElementById("address").value,
+        startDate: document.getElementById("startDate").value,
+        days: days,
+        note: document.getElementById("note").value.trim(),
+        vehicles: Object.values(grouped).map(item => ({
+          name: item.name,
+          price: item.price,
+          quantity: item.quantity
+        })),
+        totalQty: totalQty,
+        totalAmount: totalAmount * days // ✅ đây là tổng tiền thực sự
+      };
+
+      const history = JSON.parse(localStorage.getItem("rentalHistory")) || [];
+      history.push(rentalData);
+      localStorage.setItem("rentalHistory", JSON.stringify(history));
+
+      localStorage.removeItem("cart");
+      localStorage.removeItem("selectedVehicle");
+
+      alert("✅ Đặt xe thành công! Chúng tôi sẽ liên hệ sớm.");
+      window.location.href = "index.html";
+    });
+  });
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

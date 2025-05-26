@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thuexetienloi.com</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Header -->
+ <nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
+  <a class="navbar-brand" href="#">Thuexetienloi.com</a>
+  <div class="ms-auto d-flex align-items-center">
+    <a href="register.html" class="me-2">Đăng ký</a>
+    <a href="login.html" class="me-2">Đăng nhập</a>
+    <span id="userGreeting" class="text-danger fw-bold d-none me-3"></span>  <!-- Hiển thi tên người dùng sau khi đăng nhập -->
+    <a href="cart.html" class="btn btn-outline-primary">
+      🛒 Giỏ hàng (<span id="cartCount">0</span>)  </a>   <!-- Hiển thi số lượng trong giỏ hàng -->
+    <a href="#" id="logoutBtn" class="btn btn-outline-danger ms-2">Đăng xuất</a>
+  </div>
+</nav>
+
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Trang chủ</a></li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Dòng xe</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">SH</a></li>
+            <li><a class="dropdown-item" href="#">Vespa</a></li>
+            <li><a class="dropdown-item" href="#">Tay ga khác</a></li>
+            <li><a class="dropdown-item" href="#">Tay côn</a></li>
+            <li><a class="dropdown-item" href="#">Xe số</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Hãng xe</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Honda</a></li>
+            <li><a class="dropdown-item" href="#">Yamaha</a></li>
+            <li><a class="dropdown-item" href="#">Piaggio</a></li>
+            <li><a class="dropdown-item" href="#">SYM</a></li>
+            <li><a class="dropdown-item" href="#">Suzuki</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="history.html">Lịch sử thuê xe</a>
+        </li>
+      </ul>
+
+      <!-- Thanh tìm kiếm  -->
+      <form class="d-flex" role="search">
+      <input id="searchInput" class="form-control" type="search" placeholder="Tìm xe..." aria-label="Search">
+      </form>
+    </div>
+  </nav>
+
+  <!-- Banner -->
+  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="assets/img/banner1.jpg" class="d-block w-100" alt="Khuyến mãi xe tay ga">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/img/banner2.jpg" class="d-block w-100" alt="Xe SH mới về">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/img/banner3.jpg" class="d-block w-100" alt="Ưu đãi tháng 5">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <!-- Main content -->
+<main class="container my-5">
+  <div id="vehicleList" class="row row-cols-1 row-cols-md-4 g-4">
+
+    <!-- Xe 1 -->           <!-- class vehicle card để xử lý sự kiện click vào card -->
+    <div class="col">       <!-- khi click vào card thì "data-vehicle" sẽ được lưu là localStorage --> 
+      <div class="card h-100 vehicle-card" 
+      data-vehicle='{"name":"Honda AirBlade 160","price":"120000","img":"assets/img/xe1.jpg",
+      "desc":"Thiết kế thể thao, động cơ 160cc mạnh mẽ, phù hợp mọi địa hình.", 
+      "gallery":[
+      "assets/img/xe1_1.jpg",
+      "assets/img/xe1_2.jpg",
+      "assets/img/xe1_3.jpg"]}'>
+        <img src="assets/img/xe1.jpg" class="card-img-top" alt="Xe 1">
+        <div class="card-body">
+          <h5 class="card-title">Honda AirBlade 160</h5>
+          <p class="card-text">Giá: 120.000đ/ngày</p>
+          <button class="btn btn-success btn-rent">Đặt xe</button>
+          <button class="btn btn-outline-secondary btn-cart">Thêm vào giỏ</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Xe 2 -->
+    <div class="col">        
+      <div class="card h-100 vehicle-card" 
+      data-vehicle='{"name":"Sym Elegant II 100","price":"60000","img":"assets/img/xe2.jpg",
+      "desc":"Thiết kế nhỏ gọn, nhẹ nhàng và thanh thoát rất thích hợp để dạo phố.", 
+      "gallery":[
+      "assets/img/xe2_1.jpg",
+      "assets/img/xe2_2.jpg",
+      "assets/img/xe2_3.jpg"]}'>
+        <img src="assets/img/xe2.jpg" class="card-img-top" alt="Xe 2">
+        <div class="card-body">
+          <h5 class="card-title">Sym Elegant II 100</h5>
+          <p class="card-text">Giá: 60.000đ/ngày</p>
+          <button class="btn btn-success btn-rent">Đặt xe</button>
+          <button class="btn btn-outline-secondary btn-cart">Thêm vào giỏ</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Xe 3 -->
+    <div class="col">
+      <div class="card h-100 vehicle-card" 
+      data-vehicle='{"name":"Honda SH 160","price":"150000","img":"assets/img/xe3.jpg",
+      "desc":"Thiết kế cao cấp, sang trọng và đẳng cấp, động cơ 160cc mạnh mẽ chinh phục mọi cung đường.", 
+      "gallery":[
+      "assets/img/xe3_1.jpg",
+      "assets/img/xe3_2.jpg",
+      "assets/img/xe3_3.jpg"]}'>
+        <img src="assets/img/xe3.jpg" class="card-img-top" alt="Xe 3">
+        <div class="card-body">
+          <h5 class="card-title">Honda SH 160</h5>
+          <p class="card-text">Giá: 150.000đ/ngày</p>
+          <button class="btn btn-success btn-rent">Đặt xe</button>
+          <button class="btn btn-outline-secondary btn-cart">Thêm vào giỏ</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Xe 4 -->
+    <div class="col">
+      <div class="card h-100 vehicle-card" 
+      data-vehicle='{"name":"Yamaha Exciter 155VVA","price":"120000","img":"assets/img/xe4.jpg",
+      "desc":"Thiết kế thể thao, động cơ 155vva mạnh mẽ, bức tốc chớp nhoáng.", 
+      "gallery":[
+      "assets/img/xe4_1.jpg",
+      "assets/img/xe4_2.jpg",
+      "assets/img/xe4_3.jpg"]}'>
+        <img src="assets/img/xe4.jpg" class="card-img-top" alt="Xe 4">
+        <div class="card-body">
+          <h5 class="card-title">Yamaha Exciter 155VVA</h5>
+          <p class="card-text">Giá: 120.000đ/ngày</p>
+          <button class="btn btn-success btn-rent">Đặt xe</button>
+          <button class="btn btn-outline-secondary btn-cart">Thêm vào giỏ</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Xe 5 -->
+    <div class="col">
+      <div class="card h-100 vehicle-card" 
+      data-vehicle='{"name":"Piaggio Vespa 125","price":"130000","img":"assets/img/xe5.jpg",
+      "desc":"Thiết kế cổ điển, thanh lịch nam nữ ngồi lên đều tôn lên khí chất sang trọng.", 
+      "gallery":[
+      "assets/img/xe5_1.jpg",
+      "assets/img/xe5_2.jpg",
+      "assets/img/xe5_3.jpg"]}'>
+        <img src="assets/img/xe5.jpg" class="card-img-top" alt="Xe 5">
+        <div class="card-body">
+          <h5 class="card-title">Piaggio Vespa 125</h5>
+          <p class="card-text">Giá: 130.000đ/ngày</p>
+          <button class="btn btn-success btn-rent">Đặt xe</button>
+          <button class="btn btn-outline-secondary btn-cart">Thêm vào giỏ</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Xe 6 -->
+    <div class="col">
+      <div class="card h-100 vehicle-card" 
+      data-vehicle='{"name":"Suzuki Satria F150","price":"110000","img":"assets/img/xe6.jpg",
+      "desc":"Thiết kế thể thao, tối ưu khí động học, tốc độ là điểm mạnh.", 
+      "gallery":[
+      "assets/img/xe6_1.jpg",
+      "assets/img/xe6_2.jpg",
+      "assets/img/xe6_3.jpg"]}'>
+        <img src="assets/img/xe6.jpg" class="card-img-top" alt="Xe 6">
+        <div class="card-body">
+          <h5 class="card-title">Suzuki Satria F150</h5>
+          <p class="card-text">Giá: 110.000đ/ngày</p>
+          <button class="btn btn-success btn-rent">Đặt xe</button>
+          <button class="btn btn-outline-secondary btn-cart">Thêm vào giỏ</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Xe 7 -->
+    <div class="col">
+      <div class="card h-100 vehicle-card" 
+      data-vehicle='{"name":"Piaggio Liberty 125","price":"120000","img":"assets/img/xe7.jpg",
+      "desc":"Thiết kế thanh tao, động cơ iget đời mới, bền và rất lướt.", 
+      "gallery":[
+      "assets/img/xe7_1.jpg",
+      "assets/img/xe7_2.jpg",
+      "assets/img/xe7_3.jpg"]}'>
+        <img src="assets/img/xe7.jpg" class="card-img-top" alt="Xe 7">
+        <div class="card-body">
+          <h5 class="card-title">Piaggio Liberty 125</h5>
+          <p class="card-text">Giá: 120.000đ/ngày</p>
+          <button class="btn btn-success btn-rent">Đặt xe</button>
+          <button class="btn btn-outline-secondary btn-cart">Thêm vào giỏ</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Xe 8 -->
+    <div class="col">
+      <div class="card h-100 vehicle-card" 
+      data-vehicle='{"name":"Yamaha Jupiter 125","price":"110.000","img":"assets/img/xe8.jpg",
+      "desc":"Thiết kế sang trọng của dòng xe số, khung gầm cao, đi phố hay đi đường dài đều êm.", 
+      "gallery":[
+      "assets/img/xe8_1.jpg",
+      "assets/img/xe8_2.jpg",
+      "assets/img/xe8_3.jpg"]}'>
+        <img src="assets/img/xe8.jpg" class="card-img-top" alt="Xe 8">
+        <div class="card-body">
+          <h5 class="card-title">Yamaha Jupiter 125</h5>
+          <p class="card-text">Giá: 110.000đ/ngày</p>
+          <button class="btn btn-success btn-rent">Đặt xe</button>
+          <button class="btn btn-outline-secondary btn-cart">Thêm vào giỏ</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+  <!-- Footer -->
+  <footer class="bg-light text-center text-lg-start py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Thông tin liên hệ</h5>
+          <p>Tel: 0762799731</p>
+          <p>Email: Thuexetienloi@gmail.com</p>
+          <p>Website: www.thuexetienloiHCM.com</p>
+          <p>Địa chỉ:</p>
+          <p>Cơ sở 1: 58/2, đường số 6, Hiệp Bình Chánh, TP Thủ Đức</p>
+          <p>Cơ sở 2: sẽ bổ sung sau</p>
+        </div>
+        <div class="col-md-6">
+          <h5>Chính sách</h5>
+          <ul class="list-unstyled">
+            <li>Chính sách tư vấn</li>
+            <li>Chính sách đặt xe</li>
+            <li>Chính sách giao nhận</li>
+            <li>Chính sách thanh toán</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
