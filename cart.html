@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giỏ hàng - Thuexetienloi.com</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
+    <a class="navbar-brand" href="index.html">Thuexetienloi.com</a>
+    <div class="ms-auto d-flex align-items-center">
+      <a href="register.html" class="me-2">Đăng ký</a>
+      <a href="login.html" class="me-2">Đăng nhập</a>
+      <span id="userGreeting" class="text-danger fw-bold d-none me-3"></span>
+      <a href="cart.html" class="btn btn-outline-primary">
+        🛒 Giỏ hàng (<span id="cartCount">0</span>) </a>
+      <a href="#" id="logoutBtn" class="btn btn-outline-danger ms-2">Đăng xuất</a>
+    </div>
+  </nav>
+
+    <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Trang chủ</a></li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Dòng xe</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">SH</a></li>
+            <li><a class="dropdown-item" href="#">Vespa</a></li>
+            <li><a class="dropdown-item" href="#">Tay ga khác</a></li>
+            <li><a class="dropdown-item" href="#">Tay côn</a></li>
+            <li><a class="dropdown-item" href="#">Xe số</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Hãng xe</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Honda</a></li>
+            <li><a class="dropdown-item" href="#">Yamaha</a></li>
+            <li><a class="dropdown-item" href="#">Piaggio</a></li>
+            <li><a class="dropdown-item" href="#">SYM</a></li>
+            <li><a class="dropdown-item" href="#">Suzuki</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="history.html">Lịch sử thuê xe</a>
+        </li>
+      </ul>
+
+      <!-- Thanh tìm kiếm  -->
+      <form class="d-flex" role="search">
+      <input id="searchInput" class="form-control" type="search" placeholder="Tìm xe..." aria-label="Search">
+      </form>
+    </div>
+  </nav>
+  </nav>
+
+  <!-- Main content -->
+  <main class="container my-5">
+    <h2 class="mb-4">🛒 Danh sách xe trong giỏ</h2>
+    <div id="cartContainer" class="row g-4"></div>
+
+    <div class="mt-4">
+      <h5 class="text-end">Tổng cộng: <span id="totalPrice" class="text-danger fw-bold">0đ</span></h5>
+      <div class="text-end mt-2">
+        <button id="clearCartBtn" class="btn btn-outline-danger me-2">Xoá tất cả</button>
+         <button id="proceedToRent" class="btn btn-success">Tiếp tục đặt xe</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-light text-center text-lg-start py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Thông tin liên hệ</h5>
+          <p>Tel: 0762799731</p>
+          <p>Email: Thuexetienloi@gmail.com</p>
+          <p>Website: www.thuexetienloiHCM.com</p>
+          <p>Địa chỉ:</p>
+          <p>Cơ sở 1: 58/2, đường số 6, Hiệp Bình Chánh, TP Thủ Đức</p>
+          <p>Cơ sở 2: sẽ bổ sung sau</p>
+        </div>
+        <div class="col-md-6">
+          <h5>Chính sách</h5>
+          <ul class="list-unstyled">
+            <li>Chính sách tư vấn</li>
+            <li>Chính sách đặt xe</li>
+            <li>Chính sách giao nhận</li>
+            <li>Chính sách thanh toán</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
