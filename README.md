@@ -80,7 +80,7 @@
 
 ## 🚀 Định hướng phát triển
 
-- Xây dựng backend bằng Node.js / Express hoặc PHP
+- Xây dựng backend bằng Node.js hoặc PHP
 
 - Kết nối cơ sở dữ liệu (MySQL / MongoDB)
 
